@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>サプーアプリ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>サプー書店</h1>
+        <h2>今月の新刊</h2>
+            {% if books == [] %}
+                <p>新刊はありません。</p>
+            {% else %}
+                <table>
+                    <tr>
+                        <th>入荷日</th>
+                        <th>タイトル</th>
+                        <th>価格</th>
+                        <th>操作</th>
+                    </tr>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{ book.arrival_day }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.price }}円</td>
+                        <td>
+                            <form method="post" action="{{ url_for('delete', book_id=book.id) }}">
+                                <button type="submit">削除</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+            {% endif %}
+        <a href={{ url_for('form') }}>編集</a>
+
+
+        <form method="post">
+            <input type="text" name="question" placeholder="この本はありますか？" required>
+            <button type="submit">投稿</button>
+        </form>
+
+        <hr>
+
+        <h2>質問一覧</h2>
+
+        {% for post in posts %}
+            <p><strong>質問：</strong>{{ post.question }}</p>
+
+            {% if post.answer %}
+                <p>↳ 返信：{{ post.answer }}</p>
+            {% else %}
+                <form method="post" action="/reply/{{ loop.index0 }}">
+                    <input type="text" name="answer" placeholder="返信を書く">
+                    <button type="submit">返信</button>
+                </form>
+            {% endif %}
+
+            <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+h1 {
+    position: relative;
+    background:#dfefff;
+    box-shadow: 0px 0px 0px 5px #dfefff;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+
+h1:after {
+    position: absolute;
+    content: "";
+    top: -7px;
+    left: -7px;
+    border-width: 0 0 15px 15px;
+    border-style: solid;
+    border-color: #fff #fff #a8d4ff;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+}
+
+/* ページ全体 */
+body {
+    background: #eef4ff;
+    font-family: sans-serif;
+}
+
+/* アプリの箱 */
+.container {
+    width: 700px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* 見出し */
+h2 {
+    margin-top: 30px;
+    border-left: 6px solid #a8d4ff;
+    padding-left: 10px;
+    color: #333;
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th {
+    background: #dfefff;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+/* 編集リンク */
+.edit-link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #4a7dff;
+}
+
+/* フォーム */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #4a7dff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #345fe0;
+}
+
+/* 回答 */
+.answer {
+    background: #f5f9ff;
+    padding: 8px;
+    border-radius: 6px;
+}
+
